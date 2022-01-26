@@ -1,23 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import "./App.scss";
 
 function App() {
+  const [color, setColor] = useState("rojo");
+
+  const ponerFondoAzul = () => {
+    setColor("azul");
+  };
+
+  const ponerFondoRojo = () => {
+    setColor("rojo")
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className={`fondo-contenedor ${color}`}>
+      <button onClick={ponerFondoAzul}>Poner el fondo Azul</button>
+      <button onClick={ponerFondoRojo}>Poner el fondo Rojo</button>
     </div>
   );
 }
